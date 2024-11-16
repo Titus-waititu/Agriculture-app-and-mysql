@@ -1,5 +1,8 @@
 from django.urls import path
+
+from AgriCulture import settings
 from . import views
+from django.conf.urls.static import static
 
 app_name = 'farm'
 urlpatterns = [
@@ -16,4 +19,4 @@ urlpatterns = [
     path('insert_contact/', views.insert_contact, name='insert_contact'),
     path('insert_team/', views.insert_team, name='insert_team'),
     path('admin_page/', views.admin_page, name='admin_page'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

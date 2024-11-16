@@ -53,43 +53,13 @@
   <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
     <div class="carousel-item active">
-      <img src="{% static 'assets/img/hero_1.jpg' %}" alt="">
+      {% for pic in pictures %}
+      <img src="media/{{pic.picture}}" alt="">
       <div class="carousel-container">
-        <h2>Farming is the best solution to world starvation</h2>
-        <p>Placeholder text here, focusing on agriculture and food solutions for global needs.</p>
+        <h2>{{pic.message}}</h2>
+        <p>{{pic.description}}</p>
       </div>
-    </div><!-- End Carousel Item -->
-
-    <div class="carousel-item">
-      <img src="{% static 'assets/img/hero_2.jpg' %}" alt="">
-      <div class="carousel-container">
-        <h2>Organic vegetables are good for health</h2>
-        <p>At free moments, we have the choice to pick options that ensure the best for our health.</p>
-      </div>
-    </div><!-- End Carousel Item -->
-
-    <div class="carousel-item">
-      <img src="{% static 'assets/img/hero_3.jpg' %}" alt="">
-      <div class="carousel-container">
-        <h2>Providing Fresh Produce Every Single Day</h2>
-        <p>Life's blessings are clear. No one resents quality, fresh produce that's safe and reliable.</p>
-      </div>
-    </div><!-- End Carousel Item -->
-
-    <div class="carousel-item">
-      <img src="{% static 'assets/img/hero_4.jpg' %}" alt="">
-      <div class="carousel-container">
-        <h2>Farming as a Passion</h2>
-        <p>No one who truly values hard work and effort dislikes farming or its immense benefits.</p>
-      </div>
-    </div><!-- End Carousel Item -->
-
-    <div class="carousel-item">
-      <img src="{% static 'assets/img/hero_5.jpg' %}" alt="">
-      <div class="carousel-container">
-        <h2>Good Food for Everyone</h2>
-        <p>Placeholder text here, emphasizing agriculture's role in bringing good food to all people.</p>
-      </div>
+      {% endfor %}
     </div><!-- End Carousel Item -->
 
     <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">

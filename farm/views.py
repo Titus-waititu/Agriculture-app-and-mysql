@@ -4,7 +4,14 @@ from farm.models import Pictures, Testimonials, Blog, Contact, Team
 # Create your views here.
 
 def home(request):
-    return render(request, 'index.html')
+    pictures = Pictures.objects.all()
+    testimonials = Testimonials.objects.all()
+    blogs = Blog.objects.all()
+    return render(request, 'index.html', {
+        'pictures': pictures,
+        'testimonials': testimonials,
+        'blogs': blogs
+    })
 
 def about(request):
     return render(request, 'about.html')
@@ -28,10 +35,12 @@ def testimonials(request):
 def insert_image(request):
     if request.method == 'POST':
         picture = request.FILES['picture']
+        message = request.POST['message']
         description = request.POST['description']
 
         pic = Pictures(
             picture = picture,
+            message = message,
             description = description
         )
 
@@ -91,7 +100,7 @@ def insert_contact(request):
         )
 
         contact.save()
-        return redirect('/')
+        return redirect('/contact/')
 
     return render(request, 'index.html')
 
@@ -120,3 +129,6 @@ def insert_team(request):
 
 def admin_page(request):
     return render(request, 'admin_page.html')
+
+
+

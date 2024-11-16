@@ -10,6 +10,7 @@
     <form action="/insert_image/" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="file" name="picture">
+        <input type="text" name="message" placeholder="message">
         <input type="text" name="description" placeholder="description">
         <button type="submit">Submit</button>
     </form>
