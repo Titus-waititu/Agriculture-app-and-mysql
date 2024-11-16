@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Insert pictures</h1>
     <form action="/insert_image/" method="post" enctype="multipart/form-data">
@@ -18,7 +20,7 @@
     <h1>insert Team</h1>
     <form action="/insert_team/" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="file" name="picture" >
+        <input type="file" name="picture">
         <input type="text" name="name" placeholder="name">
         <input type="text" name="designation" placeholder="designation">
         <input type="text" name="twitter" placeholder="twitter URL">
@@ -30,7 +32,7 @@
     <h1>insert testimonial</h1>
     <form action="/insert_testimonial/" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="file" name="picture" >
+        <input type="file" name="picture">
         <input type="text" name="name" placeholder="name">
         <input type="text" name="message" placeholder="message">
         <button type="submit">Submit</button>
@@ -49,12 +51,25 @@
     <h1>Insert blog</h1>
     <form action="/insert_blog/" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="date" name="date" >
-        <input type="file" name="picture" >
+        <input type="date" name="date">
+        <input type="file" name="picture">
         <input type="text" name="name" placeholder="name">
         <input type="text" name="description" placeholder="description">
         <button type="submit">Submit</button>
     </form>
-    
+    <h1>Insert post</h1>
+    <form action="/insert_post/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="title">
+        <input type="text" name="author" placeholder="author">
+        <!--input category -->
+        <input type="text" name="category" placeholder="category">
+        <input type="text" name="content" placeholder="content">
+        <input type="file" name="image">
+        <input type="date" name="date" id="">
+        <button type="submit">Submit</button>
+    </form>
+
 </body>
+
 </html>

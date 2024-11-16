@@ -29,6 +29,17 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
     
+class Post(models.Model):
+    title = models.CharField(max_length=255)
+    author = models.CharField(max_length=100)
+    category = models.CharField(max_length=100)
+    content = models.TextField()
+    image = models.ImageField(upload_to='blog_images/')
+    date = models.DateField()
+
+    def __str__(self):
+        return self.title
+
 class Contact(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()

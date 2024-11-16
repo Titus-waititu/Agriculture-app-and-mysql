@@ -464,68 +464,37 @@
 </section><!-- /Services 2 Section -->
 
 
-  <!-- Testimonials Section -->
+   <!-- Testimonials Section -->
 <section class="testimonials-12 testimonials section" id="testimonials">
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
-    <h2>What Our Clients Say</h2>
-    <p>Read some of the experiences our clients have shared with us</p>
+    <h2>TESTIMONIALS</h2>
+    <p>What our clients have to say</p>
   </div><!-- End Section Title -->
 
   <div class="testimonial-wrap">
     <div class="container">
+      {% for testimonial in testimonials %}
       <div class="row">
         <div class="col-md-6 mb-4 mb-md-4">
           <div class="testimonial">
-            <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" alt="Testimonial author">
+            <img src="media/{{testimonial.picture}}" alt="Testimonial author">
             <blockquote>
               <p>
-                “The team at Green Gardens went above and beyond to make our garden flourish. Their attention to detail and commitment to quality was incredible. We couldn’t be happier with the results!”
+                {{testimonial.message}}
               </p>
             </blockquote>
-            <p class="client-name">James Smith</p>
+            <p class="client-name">{{testimonial.name}}</p>
           </div>
         </div>
-        <div class="col-md-6 mb-4 mb-md-4">
-          <div class="testimonial">
-            <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" alt="Testimonial author">
-            <blockquote>
-              <p>
-                “I’ve worked with many landscaping companies in the past, but none have been as professional and skilled as this one. They truly transformed our outdoor space into something extraordinary!”
-              </p>
-            </blockquote>
-            <p class="client-name">Kate Smith</p>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4 mb-md-4">
-          <div class="testimonial">
-            <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" alt="Testimonial author">
-            <blockquote>
-              <p>
-                “The project was completed on time and within budget. The team worked efficiently and left our garden looking beautiful. I highly recommend their services to anyone looking for top-notch landscaping.”
-              </p>
-            </blockquote>
-            <p class="client-name">Claire Anderson</p>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4 mb-md-4">
-          <div class="testimonial">
-            <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" alt="Testimonial author">
-            <blockquote>
-              <p>
-                “From design to installation, the team at Green Gardens was a pleasure to work with. They understood my vision and made it a reality, creating a stunning outdoor space we now love.”
-              </p>
-            </blockquote>
-            <p class="client-name">Dan Smith</p>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>
 </section><!-- /Testimonials Section -->
 
 
-    <!-- Recent Posts Section -->
+ <!-- Recent Posts Section -->
 <section id="recent-posts" class="recent-posts section">
 
   <!-- Section Title -->
@@ -535,107 +504,44 @@
   </div><!-- End Section Title -->
 
   <div class="container">
-
     <div class="row gy-5">
-
+      {% for post in posts %}
       <div class="col-xl-4 col-md-6">
-        <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
+        <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:100 }}">
 
           <div class="post-img position-relative overflow-hidden">
-            <img src="{% static 'assets/img/blog/blog-1.jpg' %}" class="img-fluid" alt="">
-            <span class="post-date">December 12</span>
+            <img src="{{ post.image.url }}" class="img-fluid" alt="{{ post.title }}">
+            <span class="post-date">{{ post.date|date:"F d" }}</span>
           </div>
 
           <div class="post-content d-flex flex-column">
-
-            <h3 class="post-title">Understanding Political Shifts and Their Global Impact</h3>
+            <h3 class="post-title">{{ post.title }}</h3>
 
             <div class="meta d-flex align-items-center">
               <div class="d-flex align-items-center">
-                <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span>
+                <i class="bi bi-person"></i> <span class="ps-2">{{ post.author }}</span>
               </div>
               <span class="px-3 text-black-50">/</span>
               <div class="d-flex align-items-center">
-                <i class="bi bi-folder2"></i> <span class="ps-2">Politics</span>
+                <i class="bi bi-folder2"></i> <span class="ps-2">{{ post.category }}</span>
               </div>
             </div>
 
             <hr>
 
-            <a href="{% url 'farm:blog-details' %}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-
+            <a href="{% url 'farm:blog-details' post.id %}" class="readmore stretched-link">
+              <span>Read More</span><i class="bi bi-arrow-right"></i>
+            </a>
           </div>
 
         </div>
       </div><!-- End post item -->
-
-      <div class="col-xl-4 col-md-6">
-        <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="post-img position-relative overflow-hidden">
-            <img src="{% static 'assets/img/blog/blog-2.jpg' %}" class="img-fluid" alt="">
-            <span class="post-date">July 17</span>
-          </div>
-
-          <div class="post-content d-flex flex-column">
-
-            <h3 class="post-title">The Future of Sports: Technological Advancements and Player Performance</h3>
-
-            <div class="meta d-flex align-items-center">
-              <div class="d-flex align-items-center">
-                <i class="bi bi-person"></i> <span class="ps-2">Mario Douglas</span>
-              </div>
-              <span class="px-3 text-black-50">/</span>
-              <div class="d-flex align-items-center">
-                <i class="bi bi-folder2"></i> <span class="ps-2">Sports</span>
-              </div>
-            </div>
-
-            <hr>
-
-            <a href="{% url 'farm:blog-details' %}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-
-          </div>
-
-        </div>
-      </div><!-- End post item -->
-
-      <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="post-item position-relative h-100">
-
-          <div class="post-img position-relative overflow-hidden">
-            <img src="{% static 'assets/img/blog/blog-3.jpg' %}" class="img-fluid" alt="">
-            <span class="post-date">September 05</span>
-          </div>
-
-          <div class="post-content d-flex flex-column">
-
-            <h3 class="post-title">Economic Strategies in a Post-Pandemic World</h3>
-
-            <div class="meta d-flex align-items-center">
-              <div class="d-flex align-items-center">
-                <i class="bi bi-person"></i> <span class="ps-2">Lisa Hunter</span>
-              </div>
-              <span class="px-3 text-black-50">/</span>
-              <div class="d-flex align-items-center">
-                <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span>
-              </div>
-            </div>
-
-            <hr>
-
-            <a href="{% url 'farm:blog-details' %}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-
-          </div>
-
-        </div>
-      </div><!-- End post item -->
-
+      {% endfor %}
     </div>
-
   </div>
 
 </section><!-- /Recent Posts Section -->
+
 
 
    <!-- Call To Action Section -->

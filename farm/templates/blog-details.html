@@ -80,9 +80,9 @@
 
                 <div class="meta-top">
                   <ul>
-                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{% url 'farm:blog-details' %}">Kiara Keating</a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{% url 'farm:blog-details' %}"><time datetime="2020-01-01">Jan 1, 2022</time></a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="{% url 'farm:blog-details' %}">12 Comments</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{% url 'farm:blog-details' posts.id %}">Kiara Keating</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{% url 'farm:blog-details' posts.id %}"><time datetime="2020-01-01">Jan 1, 2022</time></a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="{% url 'farm:blog-details' posts.id %}">12 Comments</a></li>
                   </ul>
                 </div><!-- End meta top -->
 
@@ -341,27 +341,27 @@
               <h3 class="widget-title">Recent Posts</h3>
 
               <div class="post-item">
-                <h4><a href="{% url 'farm:blog-details' %}">Nothing bland at all, but in nothingness</a></h4>
+                <h4><a href="{% url 'farm:blog-details' posts.id %}">Nothing bland at all, but in nothingness</a></h4>
                 <time datetime="2020-01-01">Jan 1, 2020</time>
               </div><!-- End recent post item-->
               
               <div class="post-item">
-                <h4><a href="{% url 'farm:blog-details' %}">However, and it is prevented</a></h4>
+                <h4><a href="{% url 'farm:blog-details' posts.id %}">However, and it is prevented</a></h4>
                 <time datetime="2020-01-01">Jan 1, 2020</time>
               </div><!-- End recent post item-->
               
               <div class="post-item">
-                <h4><a href="{% url 'farm:blog-details' %}">For this reason, and so that it is most similar, one will be affected</a></h4>
+                <h4><a href="{% url 'farm:blog-details' posts.id %}">For this reason, and so that it is most similar, one will be affected</a></h4>
                 <time datetime="2020-01-01">Jan 1, 2020</time>
               </div><!-- End recent post item-->
               
               <div class="post-item">
-                <h4><a href="{% url 'farm:blog-details' %}">The body’s labor will become evident for this reason</a></h4>
+                <h4><a href="{% url 'farm:blog-details' posts.id %}">The body’s labor will become evident for this reason</a></h4>
                 <time datetime="2020-01-01">Jan 1, 2020</time>
               </div><!-- End recent post item-->
               
               <div class="post-item">
-                <h4><a href="{% url 'farm:blog-details' %}">And the corrupt pains that hurt</a></h4>
+                <h4><a href="{% url 'farm:blog-details' posts.id %}">And the corrupt pains that hurt</a></h4>
                 <time datetime="2020-01-01">Jan 1, 2020</time>
               </div><!-- End recent post item-->
               

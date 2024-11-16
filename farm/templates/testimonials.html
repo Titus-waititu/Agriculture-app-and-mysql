@@ -74,51 +74,20 @@
 
   <div class="testimonial-wrap">
     <div class="container">
+      {% for testimonial in testimonials %}
       <div class="row">
         <div class="col-md-6 mb-4 mb-md-4">
           <div class="testimonial">
-            <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" alt="Testimonial author">
+            <img src="media/{{testimonial.picture}}" alt="Testimonial author">
             <blockquote>
               <p>
-                “This service was incredible! The team was professional, and the experience was smooth from start to finish. I highly recommend them to anyone in need of reliable service.”
+                {{testimonial.message}}
               </p>
             </blockquote>
-            <p class="client-name">James Smith</p>
+            <p class="client-name">{{testimonial.name}}</p>
           </div>
         </div>
-        <div class="col-md-6 mb-4 mb-md-4">
-          <div class="testimonial">
-            <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" alt="Testimonial author">
-            <blockquote>
-              <p>
-                “I am thoroughly impressed with the quality of the service. The attention to detail and customer care exceeded my expectations.”
-              </p>
-            </blockquote>
-            <p class="client-name">Kate Smith</p>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4 mb-md-4">
-          <div class="testimonial">
-            <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" alt="Testimonial author">
-            <blockquote>
-              <p>
-                “Amazing experience! The team was friendly, professional, and went out of their way to ensure my needs were met. I would definitely use their services again.”
-              </p>
-            </blockquote>
-            <p class="client-name">Claire Anderson</p>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4 mb-md-4">
-          <div class="testimonial">
-            <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" alt="Testimonial author">
-            <blockquote>
-              <p>
-                “Top-notch service! They made everything easy, and I felt well taken care of throughout the process. Highly recommend!”
-              </p>
-            </blockquote>
-            <p class="client-name">Dan Smith</p>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>

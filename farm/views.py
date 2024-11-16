@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from farm.models import Pictures, Testimonials, Blog, Contact, Team
+from farm.models import Pictures, Post, Testimonials, Blog, Contact, Team
 
 # Create your views here.
 
@@ -7,17 +7,20 @@ def home(request):
     pictures = Pictures.objects.all()
     testimonials = Testimonials.objects.all()
     blogs = Blog.objects.all()
+    posts = Post.objects.all()
     return render(request, 'index.html', {
         'pictures': pictures,
         'testimonials': testimonials,
-        'blogs': blogs
+        'blogs': blogs,
+        'posts': posts
     })
 
 def about(request):
     return render(request, 'about.html')
 
-def blogDetails(request):
-    return render(request, 'blog-details.html')
+def blogDetails(request,id):
+    posts = Post.objects.get(id=id)
+    return render(request, 'blog-details.html',{'posts': posts})
 
 def blog(request):
     return render(request, 'blog.html')
@@ -29,7 +32,8 @@ def services(request):
     return render(request, 'services.html')
 
 def testimonials(request):
-    return render(request, 'testimonials.html')
+    testimonials = Testimonials.objects.all()
+    return render(request, 'testimonials.html',{'testimonials': testimonials})
 
 
 def insert_image(request):
@@ -130,5 +134,26 @@ def insert_team(request):
 def admin_page(request):
     return render(request, 'admin_page.html')
 
+def insert_post(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        author = request.POST['author']
+        category = request.POST['category']
+        content = request.POST['content']
+        image = request.FILES['image']
+        date = request.POST['date']
 
+        post = Post(
+            title = title,
+            author = author,
+            category = category,
+            content = content,
+            image = image,
+            date = date
+        )
+
+        post.save()
+        return redirect('/')
+
+    return render(request, 'index.html')
 
