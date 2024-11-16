@@ -16,7 +16,9 @@ def home(request):
     })
 
 def about(request):
-    return render(request, 'about.html')
+    teams = Team.objects.all()
+    return render(request, 'about.html',{'teams': teams})
+   
 
 def blogDetails(request,id):
     posts = Post.objects.get(id=id)
